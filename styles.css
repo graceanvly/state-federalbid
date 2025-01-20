@@ -76,6 +76,8 @@ nav a.active {
     padding: 100px 50px;
     background-color: #003366;
     color: #fff;
+    flex-direction: row;
+    text-align: center;
 }
 
 @keyframes popIn {
@@ -94,7 +96,14 @@ nav a.active {
 
 .hero img {
     max-width: 50%;
+    height: auto;
     animation: popIn 1s ease-out forwards;
+}
+
+
+.hero-text {
+    padding: 20px;
+    max-width: 600px;
 }
 
 .hero-text h1 {
@@ -107,6 +116,7 @@ nav a.active {
     font-size: 1.2em;
     margin-bottom: 30px;
 }
+
 
 .hero button {
     padding: 15px 35px;
@@ -121,6 +131,32 @@ nav a.active {
 
 .hero button:hover {
     background-color: #e6b800;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-text p {
+        font-size: 1.1em;
+    }
+
+    .hero button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
 }
 
 .features {
