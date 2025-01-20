@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State and Federal Bids | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <a href="#"><strong>STATE <span class="vertical-and">AND</span> FEDERAL</strong><span class="bid-color">BIDS</span>.com</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav id="navMenu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Search Bids</a>
+      <a href="#">Pricing</a>
+      <a href="#">My Account</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="img/image.png" alt="Flag">
+    <div class="hero-text">
+      <h1>Secure Government Contracts & Boost Your Business</h1>
+      <p>Access a vast database of state and federal bid opportunities to grow your business.</p>
+      <button>Start Your Free Trial</button>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Advanced Search Tools</h3>
+        <p>Quickly find the bids that matter most to your business with our advanced search options.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>Daily Bid Updates</h3>
+        <p>Stay updated with real-time bid alerts and never miss out on new opportunities.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Comprehensive Data</h3>
+        <p>Access over 6 million expired bids for strategic planning and market analysis.</p>
+      </div>
+    </div>  
+  </section>
+
+  <section class="recent-bids">
+    <h2>Recent Bid Opportunities</h2>
+    <table class="bids-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Category</th>
+          <th>Closing Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bridge Repair Project</td>
+          <td>Virginia</td>
+          <td>Construction</td>
+          <td>02/20/2025</td>
+        </tr>
+        <tr>
+          <td>Roadway Resurfacing</td>
+          <td>Texas</td>
+          <td>Infrastructure</td>
+          <td>03/15/2025</td>
+        </tr>
+        <tr>
+          <td>Building Renovation</td>
+          <td>New York</td>
+          <td>Construction</td>
+          <td>04/05/2025</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 StateAndFederalBids.com - All Rights Reserved.</p>
+    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+  </footer>
+</body>
+</html>
