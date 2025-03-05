@@ -10,16 +10,21 @@ body {
     background-color: #f4f7fa;
     color: #333;
     line-height: 1.6;
+    word-break: break-word;
 }
+
 .hero-wrapper {
     position: relative;
     background: url('img/background-img.jpeg') no-repeat center;
     background-size: cover;
-    color: white; /* Ensure text is readable */
-    height: 700px; /* Reduce the height */
-    padding-top: 10px; /* Adjust padding for content positioning */
-    overflow: hidden; /* Prevents overflow issues */
+    color: white;
+    padding-bottom: 100px;
+    padding-top: 10px;
+    /* Adjust padding for content positioning */
+    overflow: hidden;
+    /* Prevents overflow issues */
 }
+
 
 .hero-wrapper::before {
     content: "";
@@ -27,9 +32,11 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Ensures full coverage */
-    background: linear-gradient(to bottom, rgba(56, 103, 199, 0.9), rgba(2, 28, 85, 0.9));
-    z-index: 1;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(87, 136, 255) 0%, rgba(11, 54, 142)100%);
+    opacity: 0.88;
+    mix-blend-mode: normal;
+
 }
 
 .hero-wrapper::after {
@@ -38,18 +45,80 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Further reduce the height of the slanted separator */
-    background: white; /* Match next section */
+    height: 100px;
+    background: #ffff;
+    /* Adjust color based on next section */
     clip-path: polygon(0 100%, 100% 0, 100% 100%);
     z-index: 2;
 }
 
 /* Ensuring the content stays above the overlay */
-.hero-wrapper > * {
+.hero-wrapper>* {
     position: relative;
     z-index: 3;
 }
 
+
+.find-bids,
+.features,
+.recent-bids,
+.contact {
+    position: relative;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+/*  */
+
+/* Angled transition effect between sections */
+
+.recent-bids::after
+    {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #f7fafc;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 2;
+}
+
+.find-bids::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #f7fafc;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 2;
+}
+
+.features::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #ffff;
+    /* Adjust color based on next section */
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 2;
+}
+
+/* Ensure content stays above overlays */
+.find-bids>*,
+.features>*,
+.recent-bids>* {
+    position: relative;
+    z-index: 3;
+    color: white;
+    /* Ensuring text contrast */
+}
 
 
 header {
@@ -57,33 +126,20 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
-    max-width: 70%;
-    margin: 0 auto; /* Centers the header horizontally */
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 header a {
     color: #fff;
     text-decoration: none;
-    margin: 0 20px;
-    font-weight: 600;
-    text-transform: uppercase;  
+    text-transform: uppercase;
 }
-
-.vertical-and {
-    display: inline-block;
-    transform: rotate(-90deg);
-    font-size: 0.6em;
-    font-weight: bold;
-    color: #fff;
-    line-height: 1;
-    margin: -7px -7px 0 -7px;
-    padding: 0;
+header img{
+    max-width: 350px;
+    width: 50vw;
+    height: auto;
 }
-
-header a:hover {
-    color: #ffcc00;
-}
-
 /* Hamburger menu */
 .hamburger {
     display: none;
@@ -97,10 +153,33 @@ header a:hover {
     justify-content: center;
     gap: 20px;
 }
+#navMenu a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+#navMenu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+#navMenu a:hover::after {
+    transform: scaleX(1); /* Expands underline on hover */
+}
 
 nav a.active {
     border-bottom: 2px solid #ffcc00;
 }
+
 
 .hero {
     display: flex;
@@ -111,18 +190,27 @@ nav a.active {
 }
 
 .hero-text {
+    flex-direction: column;
+    border: 0 solid rgba(0, 0, 0, 0);
+    position: relative;
+    transition: all .3sease;
     max-width: 65%;
+    min-width: none;
+}
+.hero h1{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 70px;
+    line-height: 1;
 }
 
-.hero-text h1 {
-    font-size: 4em;
-    font-weight: 700;
+.hero p{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 20px;
 }
-
-.hero-text p {
-    font-size: 1.2em;
-}
-
 
 .hero button {
     padding: 15px 35px;
@@ -139,24 +227,26 @@ nav a.active {
     background: rgba(255, 255, 255, 0.2);
     color: white;
 }
+
 .find-bids {
     display: flex;
-    justify-content: center; /* Centers the content */
-    align-items: center; /* Aligns items vertically */
-    padding: 50px 10%;
-    background-color: #fff; /* Light background */
-}
-
-.find-bids-container {
+    justify-content: center;
+    padding-bottom: 200px;
+    background-color: #fff;
+  }
+  
+  .find-bids-container {
     display: flex;
     align-items: center;
     max-width: 1200px;
-    gap: 40px; /* Space between image and text */
-    position: relative;
-}
-
-
-.find-bids-container img {
+    gap: 40px;
+  }
+  
+  /* Ensure the image scales well */
+  .find-bids-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
     -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="21.24 27.31 149.59 139.17"><path fill=%22black%22 d=%22M41.9,-68.2C54.8,-65,66.1,-54.9,69.5,-42.4C73,-29.8,68.5,-14.9,68,-0.3C67.5,14.3,71,28.7,66.5,39.4C62,50,49.5,57,37,61.3C24.6,65.7,12.3,67.5,0.9,65.9C-10.5,64.3,-20.9,59.3,-34,55.3C-47.1,51.4,-62.9,48.4,-71.1,39.3C-79.3,30.3,-79.9,15.1,-77.6,1.3C-75.4,-12.6,-70.4,-25.2,-64.8,-38.7C-59.2,-52.3,-53.1,-66.9,-42.2,-71.2C-31.3,-75.4,-15.7,-69.5,-0.6,-68.4C14.5,-67.4,28.9,-71.3,41.9,-68.2Z%22 transform=%22translate(100 100)%22/></svg>');
     mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="21.24 27.31 149.59 139.17"><path fill=%22black%22 d=%22M41.9,-68.2C54.8,-65,66.1,-54.9,69.5,-42.4C73,-29.8,68.5,-14.9,68,-0.3C67.5,14.3,71,28.7,66.5,39.4C62,50,49.5,57,37,61.3C24.6,65.7,12.3,67.5,0.9,65.9C-10.5,64.3,-20.9,59.3,-34,55.3C-47.1,51.4,-62.9,48.4,-71.1,39.3C-79.3,30.3,-79.9,15.1,-77.6,1.3C-75.4,-12.6,-70.4,-25.2,-64.8,-38.7C-59.2,-52.3,-53.1,-66.9,-42.2,-71.2C-31.3,-75.4,-15.7,-69.5,-0.6,-68.4C14.5,-67.4,28.9,-71.3,41.9,-68.2Z%22 transform=%22translate(100 100)%22/></svg>');
 
@@ -166,35 +256,58 @@ nav a.active {
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-
-}
-
-.find-bids-content {
+  }
+  
+  Content section
+  .find-bids-content {
     width: 50%;
-}
-
-.find-bids-content h2 {
+    min-width: 400px;
+    text-align: center;
+  }
+  
+  .find-bids-content h2 {
     color: #0033a0;
     font-size: 24px;
     font-weight: bold;
-}
-
-.find-bids-content p {
+    margin-bottom: 20px;
+  }
+  
+  .find-bids-content p {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
-}
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  .find-bids button {
+    padding: 15px 35px;
+    border: 2px solid #0033a0;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 700;
+    background: transparent;
+    color: #0033a0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .find-bids button:hover {
+    background-color: #0033a0;
+    color: #fff;
+  }
 
 .features {
     position: relative;
     padding: 50px 20px;
+    padding-bottom: 200px;
     text-align: center;
-    background-color: #f4f7fa;
+    background-color: #f7fafc;
     color: #003366;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+
 .feature-wrapper::before {
     content: "";
     position: absolute;
@@ -213,9 +326,12 @@ nav a.active {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Adjust slant size */
-    background-color: #f4f7fa; /* Match background */
-    transform: skewY(-5deg); /* Adjust slant angle */
+    height: 100px;
+    /* Adjust slant size */
+    background-color: #f4f7fa;
+    /* Match background */
+    transform: skewY(-5deg);
+    /* Adjust slant angle */
     transform-origin: top left;
 }
 
@@ -228,8 +344,10 @@ nav a.active {
 
 .feature-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px; /* Space between cards */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 20px;
+    /* Space between cards */
     max-width: 1200px;
     margin: auto;
 }
@@ -246,10 +364,12 @@ nav a.active {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
+
 .card-icon svg {
-    width: 60px; 
+    width: 60px;
     height: 60px;
 }
+
 .card-icon {
     font-size: 40px;
     color: #3182CE;
@@ -269,149 +389,43 @@ nav a.active {
     color: #555;
 }
 
-@media (max-width: 768px) {
-    .feature-cards {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 350px;
-    }
-
-    /* Hamburger Menu on smaller screens */
-    .hamburger {
-        display: block;
-    }
-
-    /* Hide nav on smaller screens */
-    #navMenu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        position: absolute;
-        top: 70px;  /* Adjust this value to space out the dropdown under the hamburger */
-        right: 20px;
-        background-color: #003366;
-        width: 200px;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Show nav when active class is added */
-    #navMenu.active {
-        display: flex;
-    }
-
-    /* Center the links in the navigation */
-    #navMenu a {
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-
-    #navMenu a:hover {
-        background-color: #ffcc00;
-        color: #003366;
-    }
-
-    /* Make sure the main header is not hidden behind the dropdown */
-    header {
-        z-index: 101;
-    }
-}
 
 .recent-bids {
     padding: 80px 20px;
     text-align: center;
-    background-color: #f4f7fa;
+    background-color: #fff;
+    padding-bottom: 200px;
+}
+.recent-bids button {
+    padding: 15px 35px;
+    border: 2px solid #0033a0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    background: #0033a0;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.recent-bids h2, .contact h2 {
+.recent-bids h2,
+.contact h2 {
     font-size: 2.5em;
     font-weight: 700;
     color: #003366;
     margin-bottom: 40px;
 }
 
-.bids-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.bids-table thead {
-    background-color: #003366;
-    color: white;
-    text-transform: uppercase;
-}
-
-.bids-table th, .bids-table td {
-    padding: 16px;
-    font-size: 1.1em;
-    text-align: left;
-}
-
-.bids-table th {
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-
-.bids-table td {
-    color: #555;
-}
-
-.bids-table tr {
-    transition: background-color 0.3s ease;
-}
-
-.bids-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.bids-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.bids-table tr:hover {
-    background-color: #ffcc00;
-    color: #003366;
-    cursor: pointer;
-}
-
-.bids-table th, .bids-table td {
-    font-size: 1em;
-    color: #555;
-}
-
-@media (max-width: 768px) {
-    .bids-table th, .bids-table td {
-        font-size: 1em;
-    }
-}
-
 .contact {
     padding: 60px 20px;
     text-align: center;
+    background-color: #f7fafc;
 }
 
 .contact form {
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
 }
 
 .contact label {
@@ -420,7 +434,8 @@ nav a.active {
     margin-bottom: 10px;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
@@ -431,46 +446,170 @@ nav a.active {
 }
 
 .contact button {
-    width: 100%;
+    min-width: 40%;
     padding: 15px;
-    background-color: #ffcc00;
+    background-color: #0033a0;
     border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    color: #003366;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #e6b800;
-}
-
-.contact input:focus, .contact textarea:focus {
-    border-color: #ffcc00;
-    outline: none;
-}
-
-@media (max-width: 768px) {
-    .contact form {
-        width: 90%;
-    }
-}
-
-footer {
-    background-color: #00274d;
     color: #fff;
-    padding: 20px 40px;
-    text-align: center;
     font-size: 1em;
+    cursor: pointer;
+}
+footer {
+    background-color: #27AAE1;
+    color: white;
+    padding: 20px 0;
+    font-size: 18px;
+    text-align: center;
 }
 
-footer a {
-    color: #ffcc00;
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    text-align: left;
+}
+
+.footer-column p {
+    margin: 5px 0;
+}
+
+.footer-column a {
+    color: white;
     text-decoration: none;
 }
 
-footer a:hover {
+.footer-column a:hover {
     text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
+@media (max-width: 1213px) {
+    .hamburger {
+        display: block !important; /* Ensures visibility */
+        position: absolute;
+        right: 10px; /* Adjust as needed */
+        top: 20px; /* Adjust as needed */
+        z-index: 1000; /* Ensures it's above other elements */
+    }
+
+    #navMenu {
+        display: none; /* Initially hidden on small screens */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    #navMenu a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    #navMenu a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (max-width: 1024px) {
+    .feature-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+    .find-bids-content h2 {
+        font-size: 24px;
+      }
+      
+      .find-bids-content p {
+        font-size: 15px;
+      }
+
+      .find-bids-container img {
+        max-width: 50%;
+        height: auto;
+      }
+      .footer-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+        .footer-column {
+            flex: 1 1 45%; /* Two columns per row */
+            text-align: center;
+        }
+    
+}
+
+
+@media (max-width: 768px) {
+    .find-bids-container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center; /* Ensures content is centered */
+        text-align: center;
+    }
+
+    .find-bids-container img {
+        display: block; /* Removes inline behavior */
+        margin: auto; /* Centers horizontally */
+        max-width: 50%; /* Adjust size as needed */
+        height: auto;
+    }
+    .hero-text {
+        flex-direction: column;
+        border: 0 solid rgba(0, 0, 0, 0);
+        position: relative;
+        transition: all .3sease;
+        max-width: 100%;
+    }
+    .hero h1{
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 40px;
+        line-height: 1;
+    }
+    
+    .hero p{
+        display: block;
+        text-align: center;
+        font-size: 10px;
+        line-height: 2;
+        margin-bottom: 10px;
+
+    }
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
+    }
+    
+    .contact form {
+        width: 90%;
+    }
+    .footer-column {
+        flex: 1 1 100%; /* Stack all columns on smaller screens */
+        text-align: center;
+    }
 }
