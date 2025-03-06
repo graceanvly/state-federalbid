@@ -167,6 +167,13 @@
         <input type="tel" name="contact" placeholder="Contact Number" required>
         <button type="submit">Submit</button>
     </form>
+    <!-- <form id="contact-form">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <button type="submit">Request a CallBack</button>
+  </form> -->
+
+  <p id="success-message">✅ Your request has been submitted successfully!</p>
     
     <p id="success-message" style="display: none; color: green;">✅ Your request has been submitted successfully!</p>
   
@@ -212,3 +219,26 @@
       document.getElementById("success-message").style.display = "block";
   });
   </script>
+<!-- 
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let formData = new FormData(this);
+
+      fetch("https://formsubmit.co/info@stateandfederalbids.com", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "text/html" } // Expecting text response, not JSON
+      })
+      .then(response => {
+          if (response.ok) { // Check if the request was successful
+              document.getElementById("success-message").style.display = "block";
+              document.getElementById("contact-form").reset();
+          } else {
+              alert("Failed to submit. Please try again.");
+          }
+      })
+      .catch(error => alert("Error: " + error.message));
+  });
+</script> -->
