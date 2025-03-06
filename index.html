@@ -162,13 +162,14 @@
     <p>We are here to help. Call us at (866) 459-8947 or enter your contact information below and we will call you back
     to answer any questions you may have.</p>
     
-    <form action="mailto:info@stateandfederalbids.com" method="post" enctype="text/plain">
+    <form action="mailto:info@stateandfederalbids.com" method="post" enctype="text/plain" id="emailForm">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="tel" name="contact" placeholder="Your Contact Number" required>
         <button type="submit">Submit</button>
     </form>
-
-    <p id="success-message">✅ Your request has been submitted successfully!</p>
+    
+    <p id="success-message" style="display: none; color: green;">✅ Your request has been submitted successfully!</p>
+  
 </div>
 
   <footer>
@@ -206,3 +207,8 @@
 
 </body>
 </html>
+<script>
+  document.getElementById("emailForm").addEventListener("submit", function() {
+      document.getElementById("success-message").style.display = "block";
+  });
+  </script>
