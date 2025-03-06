@@ -162,15 +162,18 @@
     <p>We are here to help. Call us at (866) 459-8947 or enter your contact information below and we will call you back
     to answer any questions you may have.</p>
     
-    <form id="contact-form">
+    <form action="https://formsubmit.co/graceann151@gmail.com" method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
+        
+        <!-- Success message (hidden initially) -->
+        <p id="success-message" style="display: none; color: green;">✅ Your request has been submitted successfully!</p>
+
         <button type="submit">Request a CallBack</button>
-      </form>
-    
-    <p id="success-message" style="display: none; color: green;">✅ Your request has been submitted successfully!</p>
-  
+    </form>
 </div>
+
+
 
   <footer>
       <div class="footer-container">
@@ -207,25 +210,3 @@
 
 </body>
 </html>
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      let formData = new FormData(this);
-
-      fetch("https://formsubmit.co/graceann151@gmail.com", {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "text/html" } // Expecting text response, not JSON
-      })
-      .then(response => {
-          if (response.ok) { // Check if the request was successful
-              document.getElementById("success-message").style.display = "block";
-              document.getElementById("contact-form").reset();
-          } else {
-              alert("Failed to submit. Please try again.");
-          }
-      })
-      .catch(error => alert("Error: " + error.message));
-  });
-</script>
