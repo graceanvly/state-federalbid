@@ -478,7 +478,12 @@ footer {
     margin-top: 20px;
     font-size: 15px;
 }
-
+#success-message { 
+    display: none; 
+    color: green; 
+    margin-top: 10px; 
+    font-weight: bold; 
+}
 
 @media (max-width: 1213px) {
     .hamburger {

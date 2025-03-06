@@ -160,16 +160,16 @@
   <div class="contact">
     <h2>HAVE QUESTIONS?</h2>
     <p>We are here to help. Call us at (866) 459-8947 or enter your contact information below and we will call you back
-      to answer any questions you may have.</p>
-      <form action="https://formsubmit.co/info@stateandfederalbids.com" method="POST">
+    to answer any questions you may have.</p>
+    
+    <form id="contact-form">
         <input type="text" name="name" placeholder="Name" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
-
-        <input type="hidden" name="_next" value="thank-you.html">
         <button type="submit">Request a CallBack</button>
-      </form>
-      
-  </div>
+    </form>
+
+    <p id="success-message">✅ Your request has been submitted successfully!</p>
+</div>
 
   <footer>
       <div class="footer-container">
@@ -206,3 +206,26 @@
 
 </body>
 </html>
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let formData = new FormData(this);
+
+      fetch("https://formsubmit.co/info@stateandfederalbids.com", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              document.getElementById("success-message").style.display = "block";
+              document.getElementById("contact-form").reset();
+          } else {
+              alert("Failed to submit. Please try again.");
+          }
+      })
+      .catch(error => alert("Error: " + error.message));
+  });
+</script>
