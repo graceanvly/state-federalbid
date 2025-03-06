@@ -162,16 +162,11 @@
     <p>We are here to help. Call us at (866) 459-8947 or enter your contact information below and we will call you back
     to answer any questions you may have.</p>
     
-    <form action="mailto:grace.velayo@outsourcing.ph" method="post" enctype="text/plain" id="emailForm">
+    <form id="contact-form">
         <input type="text" name="name" placeholder="Name" required>
-        <input type="tel" name="contact" placeholder="Contact Number" required>
-        <button type="submit">Submit</button>
-    </form>
-    <!-- <form id="contact-form">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <button type="submit">Request a CallBack</button>
-  </form> -->
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <button type="submit">Request a CallBack</button>
+      </form>
 
   <p id="success-message">✅ Your request has been submitted successfully!</p>
     
@@ -215,12 +210,6 @@
 </body>
 </html>
 <script>
-  document.getElementById("emailForm").addEventListener("submit", function() {
-      document.getElementById("success-message").style.display = "block";
-  });
-  </script>
-<!-- 
-<script>
   document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
 
@@ -241,4 +230,4 @@
       })
       .catch(error => alert("Error: " + error.message));
   });
-</script> -->
+</script>
