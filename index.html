@@ -168,7 +168,6 @@
     <form action="https://api.web3forms.com/submit" method="POST">
 
       <input type="hidden" name="access_key" value="4ea5f1c6-5094-414b-a62c-9e68e8aedaa8">
-      
       <input type="hidden" name="subject" value="New Lead Callback Requested">
       <input type="hidden" name="message" value=" The following person would like to know more information about our service. Please call them back today.">
         <input 
@@ -183,8 +182,8 @@
           name="phone" 
           placeholder="Phone Number" 
           required 
-          oninput="this.value = this.value.replace(/\s/g, '')"
-        >
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+        />
       <button type="submit">Request a Callback</button>
   
   </form>
