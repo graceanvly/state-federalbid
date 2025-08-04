@@ -171,8 +171,20 @@
       
       <input type="hidden" name="subject" value="New Lead Callback Requested">
       <input type="hidden" name="message" value=" The following person would like to know more information about our service. Please call them back today.">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Name" 
+          required 
+          oninput="this.value = this.value.replace(/\s/g, '')"
+        >
+        <input 
+          type="tel" 
+          name="phone" 
+          placeholder="Phone Number" 
+          required 
+          oninput="this.value = this.value.replace(/\s/g, '')"
+        >
       <button type="submit">Request a Callback</button>
   
   </form>
